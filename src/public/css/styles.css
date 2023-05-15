@@ -11,6 +11,11 @@ a {
     text-decoration: none;
 }
 
+tr td:nth-child(4) {
+    display: flex;
+    gap: 8px;
+}
+
 .topnav {
 overflow: hidden;
 background-color: #333;
@@ -43,9 +48,12 @@ color: white;
 }
 
 .form-container form {
+    display: flex;
+    flex-direction: column;
     padding: 12px;
     border: 1px solid black;
     border-radius: 8px;
+    gap: 12px;
 }
 
 .form-container label {
@@ -54,5 +62,49 @@ color: white;
 
 .btn-submit {
     margin-top: 12px;
-    align-self: center;
+}
+
+.upload-file-container {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.upload-file-container form {
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+    border: 1px solid black;
+    border-radius: 8px;
+    gap: 12px;
+}
+
+.upload-file-container form div {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.main_container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px;
+}
+
+.uploaded_image_container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px 10px;
+}
+
+.uploaded_image_container img {
+    max-width: 350px;
 }

@@ -1,0 +1,59 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nodejs</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+  </head>
+  <body>
+    <div class="topnav">
+      <a href="/">Home</a>
+      <a href="/upload" class="active">Upload file</a>
+    </div>
+
+    <div class="upload-file-container">
+      <form
+        action="/upload-profile-pic"
+        method="post"
+        enctype="multipart/form-data"
+      >
+        <div>
+          <label for="singleFile">Upload single file:</label>
+          <input
+            id="singleFile"
+            type="file"
+            name="profile_pic"
+            accept=".png,.jpg,.jpeg"
+          />
+        </div>
+
+        <div>
+          <button class="btn-submit" type="submit">Save</button>
+        </div>
+      </form>
+
+      <form
+        action="/upload-multiple-images"
+        method="post"
+        enctype="multipart/form-data"
+      >
+        <div>
+          <label for="multiFile">Upload multiple files:</label>
+          <input
+            id="multiFile"
+            type="file"
+            name="multiple_images"
+            multiple
+            accept=".png,.jpg,.jpeg"
+          />
+        </div>
+
+        <div>
+          <button class="btn-submit" type="submit">Save</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

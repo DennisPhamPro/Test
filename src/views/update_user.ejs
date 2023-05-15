@@ -1,0 +1,58 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Update user</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <div class="update-user-container form-container">
+      <form action="/update-user" method="post">
+        <div>
+          <label for="FirstName">First name:</label>
+          <input
+            id="FirstName"
+            type="text"
+            name="FirstName"
+            value="<%= Userdata[0].FirstName %>"
+          />
+        </div>
+        <div>
+          <label for="LastName">Last name:</label>
+          <input
+            id="LastName"
+            type="text"
+            name="LastName"
+            value="<%= Userdata[0].LastName %>"
+          />
+        </div>
+        <div>
+          <label for="Email">Email:</label>
+          <input
+            id="Email"
+            type="text"
+            name="Email"
+            value="<%= Userdata[0].Email %>"
+          />
+        </div>
+        <div>
+          <label for="Address">Address:</label>
+          <input
+            id="Address"
+            type="text"
+            name="Address"
+            value="<%= Userdata[0].Address %>"
+          />
+        </div>
+        <input type="text" value="<%= Userdata[0].Id %>" name="userID" hidden />
+        <div style="display: flex; justify-content: center; gap: 16px">
+          <a href="/" class="btn-submit"
+            ><button type="button">Cancel</button></a
+          >
+          <button type="submit" class="btn-submit">Save</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
