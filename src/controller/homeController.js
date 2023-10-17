@@ -1,5 +1,4 @@
 import pool from "../config/connectDB";
-import multer from "multer";
 
 const getHomepage = async (req, res) => {
   const [rows, fields] = await pool.execute("SELECT * FROM user");
@@ -58,29 +57,36 @@ const getUploadFilePage = (req, res) => {
   return res.render("uploadFile.ejs");
 };
 
-const upload = multer().single("profile_pic");
-
 const handleUploadFile = (req, res) => {
   // 'profile_pic' is the name of our file input field in the HTML form
+  // req.file contains information of uploaded file
+  // req.body contains information of text fields, if there were any
 
-  upload(req, res, function (err) {
-    // req.file contains information of uploaded file
-    // req.body contains information of text fields, if there were any
+  // if (req.fileValidationError) {
+  //   return res.send(req.fileValidationError);
+  // } else if (!req.file) {
+  //   return res.send("Please select an image to upload");
+  // }
 
-    if (req.fileValidationError) {
-      return res.send(req.fileValidationError);
-    } else if (!req.file) {
-      return res.send("Please select an image to upload");
-    } else if (err instanceof multer.MulterError) {
-      return res.send(err);
-    } else if (err) {
-      return res.send(err);
-    }
+  // Display uploaded image for user validation
+  return res.render("uploadSuccess.ejs", {
+    imageInfo: [req.file],
+  });
+};
 
-    // Display uploaded image for user validation
-    return res.render("uploadSuccess.ejs", {
-      imageURL: "/image/" + req.file.filename,
-    });
+const handleUploadMultiFiles = (req, res) => {
+  // 'multiple_images' is the name of our file input field in the HTML form
+  // req.files contains information of all uploaded files
+  // req.body contains information of text fields, if there were any
+
+  // if (req.fileValidationError) {
+  //   return res.send(req.fileValidationError);
+  // } else if (!req.files) {
+  //   return res.send("Please select an image to upload");
+  // }
+  // Display uploaded image for user validation
+  return res.render("uploadSuccess.ejs", {
+    imageInfo: req.files,
   });
 };
 
@@ -93,4 +99,5 @@ module.exports = {
   updateUser,
   getUploadFilePage,
   handleUploadFile,
+  handleUploadMultiFiles,
 };

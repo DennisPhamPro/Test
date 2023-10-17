@@ -19,6 +19,11 @@ const initWebRoute = (app) => {
     upload.single("profile_pic"),
     homeController.handleUploadFile
   );
+  router.post(
+    "/upload-multiple-images",
+    upload.array("multiple_images", 6),
+    homeController.handleUploadMultiFiles
+  );
 
   return app.use("/", router);
   // return app.use("/api/v1", router);

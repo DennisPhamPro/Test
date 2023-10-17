@@ -7,10 +7,17 @@
     <link rel="stylesheet" href="/css/styles.css" />
   </head>
   <body>
+    <!-- Image URL: "/image/" + req.file.filename -->
     <main class="main_container">
       <h1>You have uploaded this image:</h1>
       <div class="uploaded_image_container">
-        <img src="<%= imageURL %>" alt="uploaded image" width="500" />
+        <% for (let i = 0; i < imageInfo.length; i++) { %>
+        <img
+          src="<%= '/image/' + imageInfo[i].filename %>"
+          alt="uploaded image"
+          width="500"
+        />
+        <% } %>
       </div>
       <a href="/upload">Upload another image</a>
     </main>
